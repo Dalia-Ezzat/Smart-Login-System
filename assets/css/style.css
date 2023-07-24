@@ -1,0 +1,33 @@
+/* Global */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.navbar-brand,
+.card-title,
+label {
+  background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: 600;
+}
+
+.navbar {
+  background: linear-gradient(to right, #0d426b, #6a041c) !important;
+}
+
+.card-body {
+  box-shadow: -5px 2px 54px -9px rgba(0, 0, 0, 1);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  /* border:none; */
+}

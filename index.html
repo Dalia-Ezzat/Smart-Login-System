@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css"/>
+
+
+    <!-- Script JS -->
+    <script language="JavaScript" type="text/javascript" src="assets/js/script.js"></script>
+
+    <script>
+        // if user is login redirect to home page
+        if (!Authentication.isLogin()) {
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar shadow fixed-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand mb-0 h1 fs-3 fw-bold" title="Smart Login">Smart Login System</a>
+            <div class="d-flex">
+                <button id="logout-btn" class="btn btn-outline-warning" title="Logout">Logout  <i
+                        class="fa-solid fa-arrow-right-from-bracket fa-sm"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main id="main" class="">
+        <div class="container rounded-5 mt-5">
+            <div class="d-flex flex-row justify-content-center align-items-center ">
+                <div class="card  text-center rounded-4 mt-5 " style="min-width: 26rem;">
+                    <div class="card-body p-4 rounded-4  ">
+                        <h5 class="card-title p-4">Welcome, <span id="username" class="fw-bold">dalia</span></h5>
+                        <p class="card-text fw-bold ">  You are now logged in </p>
+                        <a href="https://github.com/" target="_blank" class="btn btn-outline-danger my-3">Go Somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Fontawesome JS -->
+    <script src="assets/fontawesome/js/all.min.js"></script>
+
+    <!-- Main JS -->
+    <script language="JavaScript" type="text/javascript" src="assets/js/main.js"></script>
+
+    <script>
+        // load user list
+        UserList.loadUserList();
+
+        // get user
+        let user = Authentication.getUser();
+
+        // set username
+        document.getElementById("username").innerHTML = user.name;
+
+        // logout
+        document.getElementById("logout-btn").addEventListener("click", function () {
+            Authentication.logout();
+            window.location.href = "login.html";
+        });
+    </script>
+
+</body>
+
+</html>
